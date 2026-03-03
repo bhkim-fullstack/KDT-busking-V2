@@ -9,6 +9,16 @@
 
   <link rel="stylesheet" href="<%= request.getContextPath() %>/css/common.css" />
   <link rel="stylesheet" href="<%= request.getContextPath() %>/css/board.css" />
+  
+ <style>
+ .board-view-content {
+  max-width: 100%;
+  word-wrap: break-word;      /* 긴 단어 줄바꿈 */
+  word-break: break-word;     /* 영어/URL 강제 줄바꿈 */
+  white-space: pre-wrap;      /* 엔터(줄바꿈) 유지 */
+  overflow-wrap: break-word;  /* 최신 브라우저 대응 */
+}
+ </style>
 </head>
 
 <body>

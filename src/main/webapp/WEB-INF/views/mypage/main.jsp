@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -55,7 +55,27 @@
       <div class="profile-right">
         <dl class="info">
           <div class="info-row"><dt>ID</dt><dd><c:out value="${member.memberId}" default="example_user"/></dd></div>
-          <div class="info-row"><dt>전화</dt><dd><c:out value="${member.phone}" default="010-1234-5678"/></dd></div>
+          <div class="info-row"><dt>전화</dt>
+          
+          <dd>
+          
+         	 <c:choose>
+	            <c:when test="${not empty member.phone}">
+	                ${fn:substring(member.phone,0,3)}-
+	                ${fn:substring(member.phone,3,7)}-
+	                ${fn:substring(member.phone,7,11)}
+	            </c:when>
+	            <c:otherwise>
+	                ${member.phone}
+	            </c:otherwise>
+	        </c:choose>
+          
+          
+          </dd>
+          
+          
+          
+          </div>
           <div class="info-row"><dt>이메일</dt><dd><c:out value="${member.email}" default="user@example.com"/></dd></div>
           <div class="info-row"><dt>가입일</dt><dd><c:out value="${member.createdMemberAt.toString().substring(0,4)}년 
 ${member.createdMemberAt.toString().substring(5,7)}월 
