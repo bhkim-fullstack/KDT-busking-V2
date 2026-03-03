@@ -25,7 +25,7 @@
     .join-bg {
       position: fixed;
       inset: 0;
-      background: url("<c:url value='/images/buskinglogin.png'/>") center / cover no-repeat;
+      background: url("<c:url value='/images/busking.png'/>") center / cover no-repeat;
       z-index: 0;
     }
     .join-bg::after {
