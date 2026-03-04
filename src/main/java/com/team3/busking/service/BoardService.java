@@ -39,7 +39,7 @@ public class BoardService {
     }
 
     // 게시글 등록
-    public Board createBoard(Long userId, Long boardTypeId, String title, String content, String thumbnail) {
+    public Board createBoard(Long userId, Long boardTypeId, String title, String content) {
         Member member = memberRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("회원이 존재하지 않습니다."));
 
@@ -48,7 +48,6 @@ public class BoardService {
         board.setBoardTypeId(boardTypeId);
         board.setTitle(title);
         board.setContent(content);
-        board.setThumbnailWriter(thumbnail);
 
         return boardRepository.save(board);
     }
@@ -68,10 +67,6 @@ public class BoardService {
         existing.setTitle(boardDto.getTitle());
         existing.setContent(boardDto.getContent());
 
-        // null 체크 후 set
-        if (boardDto.getThumbnailWriter() != null) {
-            existing.setThumbnailWriter(boardDto.getThumbnailWriter());
-        }
 
         // ✅ Q&A 답변 업데이트
         if (boardDto.getAnswer() != null) {

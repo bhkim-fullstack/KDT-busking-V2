@@ -70,13 +70,7 @@
                     required>${board.content}</textarea>
         </div>
 
-        <div class="form-group">
-          <label>썸네일 URL</label>
-          <input type="text"
-                 name="thumbnailWriter"
-                 placeholder="썸네일 URL 입력 (선택)"
-                 value="${board.thumbnailWriter}" />
-        </div>
+        
 
         <!-- 버튼 영역 -->
         <div class="form-buttons">

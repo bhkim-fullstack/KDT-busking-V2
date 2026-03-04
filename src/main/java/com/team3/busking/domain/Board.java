@@ -33,9 +33,6 @@ public class Board {
     @Column(name = "create_writer_at", columnDefinition = "DATETIME")
     private LocalDateTime createWriterAt = LocalDateTime.now();
 
-    @Column(name = "thumbnail_writer", length = 255)
-    private String thumbnailWriter;
-
     @Column(columnDefinition = "TEXT")
     private String answer;
     

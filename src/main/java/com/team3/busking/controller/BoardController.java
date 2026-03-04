@@ -90,8 +90,7 @@ public class BoardController {
                 loginMember.getId(),
                 board.getBoardTypeId(),
                 board.getTitle(),
-                board.getContent(),
-                board.getThumbnailWriter()
+                board.getContent()
         );
 
         return "redirect:/board/main?typeId=" + board.getBoardTypeId();
