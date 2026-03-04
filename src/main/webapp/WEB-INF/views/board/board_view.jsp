@@ -11,13 +11,19 @@
   <link rel="stylesheet" href="<%= request.getContextPath() %>/css/board.css" />
   
  <style>
- .board-view-content {
+.board-view-content {
   max-width: 100%;
-  word-wrap: break-word;      /* 긴 단어 줄바꿈 */
-  word-break: break-word;     /* 영어/URL 강제 줄바꿈 */
-  white-space: pre-wrap;      /* 엔터(줄바꿈) 유지 */
-  overflow-wrap: break-word;  /* 최신 브라우저 대응 */
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
+
+.board-view-content p {
+  margin: 0;   /* 기본 위아래 여백 제거 */
+}
+
+
  </style>
 </head>
 
@@ -65,9 +71,7 @@ ${board.createWriterAt.toString().substring(11,16)}" />
       </div>
 
       <!-- 내용 -->
-      <div class="board-view-content">
-        ${board.content}
-      </div>
+      <div class="board-view-content">${board.content}</div>
 
       <!-- 버튼 영역 -->
       <div class="board-view-actions">

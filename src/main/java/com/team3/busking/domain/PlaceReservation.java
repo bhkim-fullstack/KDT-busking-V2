@@ -63,6 +63,28 @@
 	    @CreationTimestamp
 	    @Column(name = "created_at", updatable = false)
 	    private LocalDateTime createdAt;
+	    
+	    /**
+	     * 예약 일시를 "yyyy년 MM월 dd일 HH:mm ~ HH:mm" 형식으로 반환
+	     */
+	    public String getFormattedReservationPeriod() {
+	        if (reservationDate == null || startTime == null) return "";
+
+	        if (endTime == null) {
+	            return reservationDate.getYear() + "년 "
+	                    + String.format("%02d", reservationDate.getMonthValue()) + "월 "
+	                    + String.format("%02d", reservationDate.getDayOfMonth()) + "일 "
+	                    + startTime.toString();
+	        }
+
+	        return String.format("%d년 %02d월 %02d일 %s ~ %s",
+	                reservationDate.getYear(),
+	                reservationDate.getMonthValue(),
+	                reservationDate.getDayOfMonth(),
+	                startTime.toString(),
+	                endTime.toString()
+	        );
+	    }
 	
 	    
 	}

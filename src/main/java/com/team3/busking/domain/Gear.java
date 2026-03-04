@@ -6,6 +6,7 @@
 	import lombok.Setter;
 	
 	import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 	
 	@Entity
 	@Table(name = "gear")
@@ -34,4 +35,6 @@
 
 	    @Column(name = "created_at", insertable = false, updatable = false)
 	    private LocalDateTime createdAt;
+	    
+	    
 	}

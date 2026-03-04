@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 
@@ -44,4 +45,38 @@ public class GearReservation {
 
     @Column(name = "created_at", insertable = false, updatable = false) // ✅ DB: DEFAULT CURRENT_TIMESTAMP
     private LocalDateTime createdAt;
+    
+    /**
+     * 생성일자를 "YYYY년 MM월 DD일 HH:mm" 형식으로 반환
+     */
+    public String getFormattedCreateWriterAt() {
+        if (this.createdAt == null) return "";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH:mm");
+        return this.createdAt.format(formatter);
+    }
+    
+    /**
+     * 예약 기간을 "yyyy년 MM월 dd일 HH:mm ~ HH:mm" 형식으로 반환
+     * (같은 날짜인 경우 날짜는 한 번만 출력)
+     */
+    public String getFormattedReservationPeriod() {
+        if (this.startDatetime == null || this.endDatetime == null) return "";
+
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+        if (startDatetime.toLocalDate().equals(endDatetime.toLocalDate())) {
+            return startDatetime.format(dateFormatter) + " "
+                    + startDatetime.format(timeFormatter)
+                    + " ~ "
+                    + endDatetime.format(timeFormatter);
+        } else {
+            DateTimeFormatter fullFormatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH:mm");
+            return startDatetime.format(fullFormatter)
+                    + " ~ "
+                    + endDatetime.format(fullFormatter);
+        }
+    }
+    
+    
 }

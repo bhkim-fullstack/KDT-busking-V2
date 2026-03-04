@@ -62,9 +62,7 @@ ${board.createWriterAt.toString().substring(11,16)}" /></span>
       </div>
 
       <!-- 질문 내용 -->
-      <div class="board-view-content">
-        ${board.content}
-      </div>
+      <div class="board-view-content">${board.content}</div>
 
       <!-- 답변 -->
       <div class="answer-box">

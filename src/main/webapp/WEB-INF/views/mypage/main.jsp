@@ -105,17 +105,17 @@ ${member.createdMemberAt.toString().substring(11,16)}"/></dd></div>
 	            <article class="list-item">
 	              <div class="item-left">
 	                <h3 class="item-title">
-	                  <c:out value="${r.place.placeName}" /> ·
+	                  장소명 : <c:out value="${r.place.placeName}" /> · 밴드명 : 
 	                  <c:out value="${r.bandName}" /> (<c:out value="${r.bandCount}" />명)
 	                </h3>
 	                <p class="item-meta">
-	                  <c:out value="${r.reservationDate}" /> · <c:out value="${r.startTime}" />
+	                  <c:out value="${r.getFormattedReservationPeriod()}" />
 	                </p>
 	              </div>
 
 	              <div class="item-right">
 	                <span class="status ${r.status ? 'done' : 'pending'}">
-	                  ${r.status ? '완료' : '취소'}
+	                  ${r.status ? '에약 완료' : '예약 취소'}
 	                </span>
 	                <c:if test="${r.status}">
 					    <button class="btn outline" type="button"
@@ -158,13 +158,13 @@ ${member.createdMemberAt.toString().substring(11,16)}"/></dd></div>
 	                  <c:out value="${gr.gear.gearName}" />
 	                </h3>
 	                <p class="item-meta">
-	                  <c:out value="${gr.startDatetime}" /> ~ <c:out value="${gr.endDatetime}" />
+	                  <c:out value="${gr.getFormattedReservationPeriod()}" />
 	                </p>
 	              </div>
 
 	              <div class="item-right">
 					  <span class="status ${gr.status == 'RESERVED' ? 'pending' : 'done'}">
-					    <c:out value="${gr.status}" />
+					    <c:out value="${gr.status == 'RESERVED' ? '예약 완료' : '반납 완료'}" />
 					  </span>
 					
 					  <c:if test="${gr.status != 'RETURNED'}">
@@ -205,10 +205,10 @@ ${member.createdMemberAt.toString().substring(11,16)}"/></dd></div>
 	            <article class="list-item">
 	              <div class="item-left">
 	                <h3 class="item-title">
-	                  <c:out value="${post.boardId}" />
+	                  <c:out value="${post.title }"/>
 	                </h3>
 	                <p class="item-meta">
-	                  <c:out value="${post.createWriterAt}" /> ~ <c:out value="${gr.endDatetime}" />
+	                  <c:out value="${post.getFormattedCreateWriterAt()}" />
 	                </p>
 	              </div>
 
