@@ -71,12 +71,31 @@ public class Member {
 
         String onlyNumber = this.phone.replaceAll("[^0-9]", "");
 
-        if (onlyNumber.length() == 11) {
-            return onlyNumber.replaceAll("(\\d{3})(\\d{4})(\\d{4})", "$1-$2-$3");
-        } else if (onlyNumber.length() == 10) {
-            return onlyNumber.replaceAll("(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3");
+        // ✅ 휴대폰 (010-1234-5678)
+        if (onlyNumber.matches("^01\\d{8,9}$")) {
+            if (onlyNumber.length() == 11) {
+                return onlyNumber.replaceAll("(\\d{3})(\\d{4})(\\d{4})", "$1-$2-$3");
+            } else { // 10자리 휴대폰 (옛날 011 등)
+                return onlyNumber.replaceAll("(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3");
+            }
         }
 
-        return this.phone;
+        // ✅ 서울 지역번호 (02-1234-5678 / 02-123-4567)
+        if (onlyNumber.startsWith("02")) {
+            if (onlyNumber.length() == 10) {
+                return onlyNumber.replaceAll("(\\d{2})(\\d{4})(\\d{4})", "$1-$2-$3");
+            } else if (onlyNumber.length() == 9) {
+                return onlyNumber.replaceAll("(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3");
+            }
+        }
+
+        // ✅ 그 외 지역번호 (031, 051 등)
+        if (onlyNumber.length() == 10) {
+            return onlyNumber.replaceAll("(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3");
+        } else if (onlyNumber.length() == 11) {
+            return onlyNumber.replaceAll("(\\d{3})(\\d{4})(\\d{4})", "$1-$2-$3");
+        }
+
+        return this.phone; // 형식이 맞지 않으면 원본 반환
     }
 }
