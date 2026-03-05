@@ -92,7 +92,7 @@
 		  		             </div>
 		  		             <div class="mini-row">
 		  		               <dt>예약 기간</dt>
-		  		               <dd>${gearReservation.startDatetime} ~ <br>${gearReservation.endDatetime}</dd>
+		  		               <dd>${gearReservation.getFormattedReservationPeriod().replace(" ~ ", " ~ <br>")}</dd>
 		  		             </div>
 		  		           </dl>
 		  		         </div>

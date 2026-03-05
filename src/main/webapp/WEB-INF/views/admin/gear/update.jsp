@@ -119,8 +119,6 @@ textarea {
             <label>설명</label>
             <textarea name="gearDescription">${gear.gearDescription}</textarea>
 
-        <label>장비 설명</label>
-        <textarea name="description">${equipment.description}</textarea>
 
       <div class="btn-group">
         
