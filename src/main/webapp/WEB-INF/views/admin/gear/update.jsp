@@ -122,7 +122,7 @@ textarea {
 
       <div class="btn-group">
         
-        <button type="button" class="btn submit" onclick="updateGear()">수정 완료</button>
+        <button type="submit" class="btn submit" onclick="updateGear()">수정 완료</button>
         <a href="/admin/gear/update_list" class="btn cancel">수정 취소</a>
       </div>
       
@@ -136,12 +136,6 @@ textarea {
 
 
 
-<script>
-function updateGear() {
-  alert("장비 정보가 수정되었습니다.");
-  location.href = "/admin/gear/update_list";
-}
-</script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>

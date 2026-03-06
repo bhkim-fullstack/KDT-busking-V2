@@ -54,11 +54,11 @@ th, td {
 }
 
 .delete {
-	background-color: #ff4d4f;
+	background-color: #dc3545;
 }
 
 .edit {
-	background-color: #ff7875;
+	background-color: #007bff;
 }
 
 .view {
@@ -149,7 +149,7 @@ th, td {
 								<td>${g.gearPrice}</td>
 								<td class="manage-btns">
 									<a class="edit" href="<c:url value='/admin/gear/update'/>?id=${g.id}">수정</a>
-									<a class="edit" href="<c:url value='/admin/gear/delete'/>?id=${g.id}" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
+									<a class="delete" href="<c:url value='/admin/gear/delete'/>?id=${g.id}" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
 								</td>
 							</tr>
 						</c:forEach>

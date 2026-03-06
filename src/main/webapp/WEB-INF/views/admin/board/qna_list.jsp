@@ -54,9 +54,9 @@
             display: inline-block;
         }
 
-        .delete { background-color: #ff4d4f; }
-        .edit { background-color: #ff7875; }
-        .view { background-color: #ff4d4f; }
+        .delete { background-color: #dc3545; }
+        .edit { background-color: #007bff; }
+        .view { background-color: #28a745; }
         .empty { padding: 30px; color: #666; }
 	</style>	    
 	</head>

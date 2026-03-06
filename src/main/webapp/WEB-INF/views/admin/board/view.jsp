@@ -63,12 +63,13 @@ textarea {
 }
 
 .cancel {
-	background-color: #ff4d4f;
+	background-color: #6c757d;
 	text-decoration: none;
 	text-align: center;
 	display: inline-block;
 	line-height: 28px;
 }
+
 </style>
 </head>
 <body>
@@ -85,6 +86,7 @@ textarea {
 			<!-- 사이드 메뉴 -->
 			<aside class="admin-aside">
 				<ul>
+					<li><a href="<c:url value='/admin/main'/>">대시보드</a></li>
 					<li><a href="<c:url value='/admin/board/list'/>">게시판 관리</a></li>
 					<li><a href="<c:url value='/admin/board/qna_list'/>">Q&A
 							관리</a></li>

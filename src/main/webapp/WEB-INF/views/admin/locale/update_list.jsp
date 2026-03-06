@@ -54,8 +54,8 @@
             display: inline-block;
         }
 
-        .delete { background-color: #ff4d4f; }
-        .edit { background-color: #ff7875; }
+        .delete { background-color: #dc3545; }
+        .edit { background-color: #007bff; }
         .view { background-color: #ff4d4f; }
         .empty { padding: 30px; color: #666; }
         
@@ -143,7 +143,7 @@
 								<td><c:out value="${p.placePhone}" /></td>
 								<td class="manage-btns">
 								<a class="edit" href="<c:url value='/admin/locale/update'/>?id=${p.id}">수정</a>
-								<a class="edit" href="<c:url value='/admin/locale/delete'/>?id=${p.id}" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
+								<a class="delete" href="<c:url value='/admin/locale/delete'/>?id=${p.id}" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
 								</td>
 							</tr>
 						</c:forEach>

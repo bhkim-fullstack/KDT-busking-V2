@@ -74,11 +74,23 @@ th, td {
 }
 
 .reject-btn {
-	background-color: #f44336;
+	background-color: #dc3545;
 }
 
 .view-btn {
 	background-color: #607d8b;
+	}
+	
+	.status.returned {
+    color: #28a745;   /* 초록 */
+    font-weight: bold;
+}
+
+.status.reserved {
+    color: #007bff;   /* 파랑 */
+    font-weight: bold;
+}
+	
 	</style>
 	    
 	</head>
@@ -139,12 +151,19 @@ th, td {
 								</c:choose></td>
 							<td>${r.createdAt}</td>
 							<td>${r.startDatetime}~ ${r.endDatetime}</td>
-							<td class="status wait">${r.status}</td>
+							<td class="status 
+								<c:choose>
+								    <c:when test="${r.status == 'RETURNED'}">returned</c:when>
+								    <c:when test="${r.status == 'RESERVED'}">reserved</c:when>
+								</c:choose>
+								">
+								    ${r.status}
+								</td>
 
 							<td class="manage-btns">
 							
 								<c:if test="${r.status != 'RETURNED'}">
-													    <button class="reject-btn" type="button"
+													    <button class="approve-btn" type="button"
 													      onclick="location.href='${pageContext.request.contextPath}/admin/gear/return?id=${r.id}'">
 													      반납하기
 													    </button>

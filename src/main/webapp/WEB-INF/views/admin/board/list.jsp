@@ -49,15 +49,15 @@ thead {
 }
 
 .delete {
-	background-color: #ff4d4f;
+	background-color: #dc3545;
 }
 
 .edit {
-	background-color: #ff7875;
+	background-color: #007bff;
 }
 
 .view {
-	background-color: #ff4d4f;
+	background-color: #28a745;
 }
 
 .empty {

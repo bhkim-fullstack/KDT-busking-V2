@@ -55,7 +55,7 @@ th, td {
 }
 
 .edit-btn {
-	background-color: #607d8b;
+	background-color: #007bff;
 }
 
 .delete-btn {
